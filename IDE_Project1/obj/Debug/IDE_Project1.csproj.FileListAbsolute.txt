@@ -7,4 +7,4 @@ C:\Users\josue\source\repos\IDE_Project1\IDE_Project1\obj\Debug\IDE_Project1.csp
 C:\Users\josue\source\repos\IDE_Project1\IDE_Project1\obj\Debug\IDE_Project1.csproj.CoreCompileInputs.cache
 C:\Users\josue\source\repos\IDE_Project1\IDE_Project1\obj\Debug\IDE_Project1.exe
 C:\Users\josue\source\repos\IDE_Project1\IDE_Project1\obj\Debug\IDE_Project1.pdb
-C:\Users\josue\source\repos\IDE_Project1\IDE_Project1\obj\Debug\IDE_Project1.Form1.resources
+C:\Users\josue\source\repos\IDE_Project1\IDE_Project1\obj\Debug\IDE_Project1.IDE_Project1.resources

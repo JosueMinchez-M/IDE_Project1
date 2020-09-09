@@ -1,6 +1,6 @@
 ﻿namespace IDE_Project1
 {
-    partial class Form1
+    partial class IDE_Project1
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -42,8 +42,10 @@
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cerrarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_escribirCodigo = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label_FilaColumna = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,15 +149,19 @@
             this.cerrarArchivoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cerrarArchivoToolStripMenuItem.Text = "Cerrar Archivo";
             // 
-            // richTextBox1
+            // rtb_escribirCodigo
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.rtb_escribirCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(13, 28);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(775, 259);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.rtb_escribirCodigo.Location = new System.Drawing.Point(12, 28);
+            this.rtb_escribirCodigo.Name = "rtb_escribirCodigo";
+            this.rtb_escribirCodigo.Size = new System.Drawing.Size(776, 251);
+            this.rtb_escribirCodigo.TabIndex = 1;
+            this.rtb_escribirCodigo.Text = "";
+            this.rtb_escribirCodigo.TextChanged += new System.EventHandler(this.rtb_escribirCodigo_TextChanged);
+            this.rtb_escribirCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.rtb_escribirCodigo_Key);
+            this.rtb_escribirCodigo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rtb_escribirCodigo_MouseDown);
             // 
             // button1
             // 
@@ -168,17 +174,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // label_FilaColumna
+            // 
+            this.label_FilaColumna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_FilaColumna.AutoSize = true;
+            this.label_FilaColumna.Location = new System.Drawing.Point(12, 282);
+            this.label_FilaColumna.Name = "label_FilaColumna";
+            this.label_FilaColumna.Size = new System.Drawing.Size(92, 13);
+            this.label_FilaColumna.TabIndex = 3;
+            this.label_FilaColumna.Text = "label_FilaColumna";
+            this.label_FilaColumna.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(12, 298);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(776, 92);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
+            // 
+            // IDE_Project1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label_FilaColumna);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.rtb_escribirCodigo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "IDE_Project1";
+            this.Text = "IDE_Project1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -203,8 +232,10 @@
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem cerrarArchivoToolStripMenuItem;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_escribirCodigo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label_FilaColumna;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
