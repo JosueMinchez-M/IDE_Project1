@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Documents;
 using System.Security.Policy;
-
+using Microsoft.Win32;
+using System.Windows.Media.Animation;
+using System.IO;
 namespace IDE_Project1
 {
     public partial class IDE_Project1 : Form
@@ -19,18 +21,8 @@ namespace IDE_Project1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
         //Se obtiene el numero de filas y columnas
         public void datoEtiquetaTeclado()
@@ -88,10 +80,10 @@ namespace IDE_Project1
             }
         }
         //Una prueba con el raton
-        private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
-        {
-            datoEtiquetaRaton(e.X);
-            //label_FilaColumna.Text = "Fila: " + e.X + " Columna: " + e.Y;
-        }
+        //private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //  datoEtiquetaRaton(e.X);
+        //label_FilaColumna.Text = "Fila: " + e.X + " Columna: " + e.Y;
+        //}
     }
 }
