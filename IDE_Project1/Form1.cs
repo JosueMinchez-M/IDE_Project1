@@ -84,11 +84,15 @@ namespace IDE_Project1
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            mi_archivoAbrir.Enabled = false;
+            mi_archivoCrear.Enabled = false;
             archivo.crearArchivo(rtb_escribirCodigo, label_mostarProyecto);
         }
 
         private void abrirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            mi_archivoAbrir.Enabled = false;
+            mi_archivoCrear.Enabled = false;
             archivo.abrirArchivo(rtb_escribirCodigo, label_mostarProyecto);
         }
 
@@ -99,6 +103,9 @@ namespace IDE_Project1
         //Método del item CERRAR PROYECTO
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
+            mi_archivoAbrir.Enabled = true;
+            mi_archivoCrear.Enabled = true;
+            archivo.guardarArchivo(rtb_escribirCodigo);
             archivo.cerrarProyecto(rtb_escribirCodigo, label_mostarProyecto);
         }
 

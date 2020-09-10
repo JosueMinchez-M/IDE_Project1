@@ -24,7 +24,7 @@ namespace IDE_Project1
             {
                 path = guardarArchivo.FileName;
                 mostrarNombreProyecto(path, label_mostarProyecto);
-                escribirArchivo(rtb_escribirCodigo);
+                //escribirArchivo(rtb_escribirCodigo);
             }
             rtb_escribirCodigo.Text = "";
         }
