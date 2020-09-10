@@ -11,9 +11,11 @@ namespace IDE_Project1
 {
     class Archivo
     {
-        String path;
+        String path; //Path de crear archivo y general
+        Boolean esAbrir = false;
         internal void crearArchivo(System.Windows.Forms.RichTextBox rtb_escribirCodigo, System.Windows.Forms.Label label_mostarProyecto)
         {
+            esAbrir = false;
             rtb_escribirCodigo.ReadOnly = false;
             path = "";
             System.Windows.Forms.SaveFileDialog guardarArchivo = new System.Windows.Forms.SaveFileDialog();
@@ -22,9 +24,7 @@ namespace IDE_Project1
             {
                 path = guardarArchivo.FileName;
                 mostrarNombreProyecto(path, label_mostarProyecto);
-                StreamWriter sw = new StreamWriter(File.Create(path));
-                sw.WriteLine(rtb_escribirCodigo.Text);
-                sw.Dispose();
+                escribirArchivo(rtb_escribirCodigo);
             }
             rtb_escribirCodigo.Text = "";
         }
@@ -32,24 +32,22 @@ namespace IDE_Project1
         //Se ejecuta este metodo que guardara los datos en el archivo en el que estamos
         internal void guardarArchivo(System.Windows.Forms.RichTextBox rtb_escribirCodigo)
         {
-            StreamWriter sw = new StreamWriter(File.Create(path));
-            sw.WriteLine(rtb_escribirCodigo.Text);
-            sw.Dispose();
+            escribirArchivo(rtb_escribirCodigo);
         }
         internal void abrirArchivo(System.Windows.Forms.RichTextBox rtb_escribirCodigo, System.Windows.Forms.Label label_mostarProyecto)
         {
             rtb_escribirCodigo.ReadOnly = true;
             rtb_escribirCodigo.Text = "";
-            String pathArchivo;
+            String pathAbrirArchivo;
             System.Windows.Forms.OpenFileDialog abrirArchivo = new System.Windows.Forms.OpenFileDialog();
             abrirArchivo.Filter = "gt files (*.gt)|*.gt"; //Text|*.txt|All|*.*
             if (abrirArchivo.ShowDialog() == DialogResult.OK)
             {
-                //rtb_escribirCodigo.Text = (abrirArchivo.SafeFileName);
                 //Se obtiene el path especifico 
-                pathArchivo = abrirArchivo.FileName;
+                pathAbrirArchivo = abrirArchivo.FileName;
+                path = pathAbrirArchivo;
                 //Con este metodo mostramos el nombre del proyecto en pantalla
-                mostrarNombreProyecto(pathArchivo, label_mostarProyecto);
+                mostrarNombreProyecto(pathAbrirArchivo, label_mostarProyecto);
                 //Lee el contenido del archivo dentro del programa
                 var fileStream = abrirArchivo.OpenFile();
                 using (StreamReader leerArchivo = new StreamReader(fileStream))
@@ -57,6 +55,7 @@ namespace IDE_Project1
                     rtb_escribirCodigo.Text = leerArchivo.ReadToEnd();
                 }
             }
+            esAbrir = true;
         }
         //Con este metodo mostramos el nombre del proyecto en pantalla
         private void mostrarNombreProyecto(String path, System.Windows.Forms.Label label_mostarProyecto)
@@ -72,6 +71,36 @@ namespace IDE_Project1
             label_mostarProyecto.Text = "";
             path = "";
             MessageBox.Show("El proyecto se ha cerrado con éxito");
+            rtb_escribirCodigo.ReadOnly = true;
+            esAbrir = false;
+        }
+
+        private void escribirArchivo(System.Windows.Forms.RichTextBox rtb_escribirCodigo)
+        {
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Create(path));
+                sw.WriteLine(rtb_escribirCodigo.Text);
+                sw.Dispose();
+                MessageBox.Show("Cambios Guardados con Exito");
+            }
+            catch
+            {
+                MessageBox.Show("No es posible Guardar por el momento");
+            }
+        }
+
+        internal void editarProyecto(System.Windows.Forms.RichTextBox rtb_escribirCodigo)
+        {
+            if (esAbrir == true)
+            {
+                rtb_escribirCodigo.ReadOnly = false;
+                MessageBox.Show("Ya puedes editar tu proyecto");
+            }
+            else
+            {
+                MessageBox.Show("No es posible editar, no has abierto ningún Proyecto");
+            }
         }
     }
 }

@@ -101,6 +101,11 @@ namespace IDE_Project1
         {
             archivo.cerrarProyecto(rtb_escribirCodigo, label_mostarProyecto);
         }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            archivo.editarProyecto(rtb_escribirCodigo);
+        }
         //Una prueba con el raton
         //private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
         //{
