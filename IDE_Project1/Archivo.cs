@@ -102,5 +102,30 @@ namespace IDE_Project1
                 MessageBox.Show("No es posible editar, no has abierto ningún Proyecto");
             }
         }
+
+        internal void eliminarArchivo(System.Windows.Forms.RichTextBox rtb_escribirCodigo, System.Windows.Forms.Label label_mostarProyecto)
+        {
+            try
+            {
+                File.Delete(path);
+                if (File.Exists(path))
+                {
+                    MessageBox.Show("El archivo sigue existiendo.");
+                }
+                else
+                {
+                    MessageBox.Show("El archivo ya no existe.");
+                    rtb_escribirCodigo.Text = "";
+                    rtb_escribirCodigo.ReadOnly = true;
+                    label_mostarProyecto.Text = "";
+                    path = "";
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error al borrar archivo, no se ha seleccionado ninguno");
+            }
+        }
     }
 }

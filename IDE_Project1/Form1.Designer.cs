@@ -133,6 +133,7 @@
             this.mi_archivoEliminar.Name = "mi_archivoEliminar";
             this.mi_archivoEliminar.Size = new System.Drawing.Size(180, 22);
             this.mi_archivoEliminar.Text = "Eliminar";
+            this.mi_archivoEliminar.Click += new System.EventHandler(this.mi_archivoEliminar_Click);
             // 
             // toolStripSeparator1
             // 
@@ -193,6 +194,7 @@
             this.Controls.Add(this.rtb_escribirCodigo);
             this.Controls.Add(this.menuStrip1);
             this.Name = "IDE_Project1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IDE_Project1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

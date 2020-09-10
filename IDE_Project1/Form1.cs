@@ -20,7 +20,9 @@ namespace IDE_Project1
         public IDE_Project1()
         {
             InitializeComponent();
+            
             rtb_escribirCodigo.ReadOnly = true;
+            mi_archivoCerrarProyecto.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,6 +88,7 @@ namespace IDE_Project1
         {
             mi_archivoAbrir.Enabled = false;
             mi_archivoCrear.Enabled = false;
+            mi_archivoCerrarProyecto.Enabled = true;
             archivo.crearArchivo(rtb_escribirCodigo, label_mostarProyecto);
         }
 
@@ -93,6 +96,7 @@ namespace IDE_Project1
         {
             mi_archivoAbrir.Enabled = false;
             mi_archivoCrear.Enabled = false;
+            mi_archivoCerrarProyecto.Enabled = true;
             archivo.abrirArchivo(rtb_escribirCodigo, label_mostarProyecto);
         }
 
@@ -112,6 +116,14 @@ namespace IDE_Project1
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             archivo.editarProyecto(rtb_escribirCodigo);
+        }
+
+        private void mi_archivoEliminar_Click(object sender, EventArgs e)
+        {
+            mi_archivoAbrir.Enabled = true;
+            mi_archivoCrear.Enabled = true;
+            mi_archivoCerrarProyecto.Enabled = false;
+            archivo.eliminarArchivo(rtb_escribirCodigo, label_mostarProyecto);
         }
         //Una prueba con el raton
         //private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
