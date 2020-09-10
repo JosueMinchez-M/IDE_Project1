@@ -16,9 +16,11 @@ namespace IDE_Project1
 {
     public partial class IDE_Project1 : Form
     {
+        Archivo archivo = new Archivo();
         public IDE_Project1()
         {
             InitializeComponent();
+            rtb_escribirCodigo.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,19 +41,19 @@ namespace IDE_Project1
             etiqueta.verFilaColumna(label_FilaColumna);
         }
         //Una prueba con el raton
-        public void datoEtiquetaRaton(int indice)
-        {
-            // Obtenemos la Fila 
-            //int indice = rtb_escribirCodigo.SelectionStart;
-            Console.WriteLine(indice);
-            int fila = rtb_escribirCodigo.GetLineFromCharIndex(indice);
-            // Obtenemos la Columna
-            int primerCaracter = rtb_escribirCodigo.GetFirstCharIndexFromLine(fila);
-            Console.WriteLine(primerCaracter);
-            int columna = indice - primerCaracter;
-            Etiqueta etiquetaRaton = new Etiqueta(fila, columna);
-            etiquetaRaton.verFilaColumna(label_FilaColumna);
-        }
+        //public void datoEtiquetaRaton(int indice)
+        //{
+        //    // Obtenemos la Fila 
+        //    //int indice = rtb_escribirCodigo.SelectionStart;
+        //    Console.WriteLine(indice);
+        //    int fila = rtb_escribirCodigo.GetLineFromCharIndex(indice);
+        //    // Obtenemos la Columna
+        //    int primerCaracter = rtb_escribirCodigo.GetFirstCharIndexFromLine(fila);
+        //    Console.WriteLine(primerCaracter);
+        //    int columna = indice - primerCaracter;
+        //    Etiqueta etiquetaRaton = new Etiqueta(fila, columna);
+        //    etiquetaRaton.verFilaColumna(label_FilaColumna);
+        //}
         /*Con este Método se determina la ETIQUETA donde está el No. de fila y columna
          en la que se encuentra el cursor de Texto al momento de escribir cada caracter*/
         private void rtb_escribirCodigo_TextChanged(object sender, EventArgs e)
@@ -78,6 +80,26 @@ namespace IDE_Project1
             {
                 datoEtiquetaTeclado();
             }
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            archivo.crearArchivo(rtb_escribirCodigo, label_mostarProyecto);
+        }
+
+        private void abrirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            archivo.abrirArchivo(rtb_escribirCodigo, label_mostarProyecto);
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            archivo.guardarArchivo(rtb_escribirCodigo);
+        }
+        //Método del item CERRAR PROYECTO
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            archivo.cerrarProyecto(rtb_escribirCodigo, label_mostarProyecto);
         }
         //Una prueba con el raton
         //private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
