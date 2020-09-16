@@ -98,6 +98,7 @@ namespace IDE_Project1
             mi_archivoCrear.Enabled = false;
             mi_archivoCerrarProyecto.Enabled = true;
             archivo.abrirArchivo(rtb_escribirCodigo, label_mostarProyecto);
+            MessageBox.Show("******************" + rtb_escribirCodigo.Lines.Length + "********************");
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
