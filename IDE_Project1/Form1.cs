@@ -17,6 +17,7 @@ namespace IDE_Project1
     public partial class IDE_Project1 : Form
     {
         Archivo archivo = new Archivo();
+        Automata automata = new Automata();
         public IDE_Project1()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace IDE_Project1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //automata.automataActivado(rtb_escribirCodigo);
         }
         //Se obtiene el numero de filas y columnas
         public void datoEtiquetaTeclado()
