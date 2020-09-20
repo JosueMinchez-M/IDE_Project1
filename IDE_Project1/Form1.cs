@@ -28,7 +28,7 @@ namespace IDE_Project1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //automata.automataActivado(rtb_escribirCodigo);
+            automata.automataActivado(rtb_escribirCodigo);
         }
         //Se obtiene el numero de filas y columnas
         public void datoEtiquetaTeclado()

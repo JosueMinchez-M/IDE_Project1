@@ -80,7 +80,7 @@ namespace IDE_Project1
             try
             {
                 StreamWriter sw = new StreamWriter(File.Create(path));
-                sw.WriteLine(rtb_escribirCodigo.Text);
+                sw.Write(rtb_escribirCodigo.Text);
                 sw.Dispose();
                 MessageBox.Show("Cambios Guardados con Exito");
             }
