@@ -12,23 +12,26 @@ using System.Security.Policy;
 using Microsoft.Win32;
 using System.Windows.Media.Animation;
 using System.IO;
+using System.Text.RegularExpressions;
+
 namespace IDE_Project1
 {
     public partial class IDE_Project1 : Form
     {
+        Cadena cadena = new Cadena();
         Archivo archivo = new Archivo();
         Automata automata = new Automata();
         public IDE_Project1()
         {
             InitializeComponent();
-            
             rtb_escribirCodigo.ReadOnly = true;
             mi_archivoCerrarProyecto.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            automata.automataActivado(rtb_escribirCodigo);
+            cadena.caracterCadena(rtb_escribirCodigo);
+            automata.automataActivado(rtb_escribirCodigo, rtb_Errores);
         }
         //Se obtiene el numero de filas y columnas
         public void datoEtiquetaTeclado()

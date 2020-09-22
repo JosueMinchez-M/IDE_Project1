@@ -32,7 +32,7 @@
             this.rtb_escribirCodigo = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label_FilaColumna = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_Errores = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mi_archivoCrear = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,15 +80,15 @@
             this.label_FilaColumna.Size = new System.Drawing.Size(0, 13);
             this.label_FilaColumna.TabIndex = 3;
             // 
-            // richTextBox1
+            // rtb_Errores
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.rtb_Errores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 298);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 92);
-            this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.rtb_Errores.Location = new System.Drawing.Point(12, 298);
+            this.rtb_Errores.Name = "rtb_Errores";
+            this.rtb_Errores.Size = new System.Drawing.Size(776, 92);
+            this.rtb_Errores.TabIndex = 4;
+            this.rtb_Errores.Text = "";
             // 
             // menuStrip1
             // 
@@ -117,33 +117,33 @@
             // mi_archivoCrear
             // 
             this.mi_archivoCrear.Name = "mi_archivoCrear";
-            this.mi_archivoCrear.Size = new System.Drawing.Size(180, 22);
+            this.mi_archivoCrear.Size = new System.Drawing.Size(156, 22);
             this.mi_archivoCrear.Text = "Crear";
             this.mi_archivoCrear.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // mi_archivoAbrir
             // 
             this.mi_archivoAbrir.Name = "mi_archivoAbrir";
-            this.mi_archivoAbrir.Size = new System.Drawing.Size(180, 22);
+            this.mi_archivoAbrir.Size = new System.Drawing.Size(156, 22);
             this.mi_archivoAbrir.Text = "Abrir";
             this.mi_archivoAbrir.Click += new System.EventHandler(this.abrirToolStripMenuItem1_Click);
             // 
             // mi_archivoEliminar
             // 
             this.mi_archivoEliminar.Name = "mi_archivoEliminar";
-            this.mi_archivoEliminar.Size = new System.Drawing.Size(180, 22);
+            this.mi_archivoEliminar.Size = new System.Drawing.Size(156, 22);
             this.mi_archivoEliminar.Text = "Eliminar";
             this.mi_archivoEliminar.Click += new System.EventHandler(this.mi_archivoEliminar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
             // 
             // mi_archivoCerrarProyecto
             // 
             this.mi_archivoCerrarProyecto.Name = "mi_archivoCerrarProyecto";
-            this.mi_archivoCerrarProyecto.Size = new System.Drawing.Size(180, 22);
+            this.mi_archivoCerrarProyecto.Size = new System.Drawing.Size(156, 22);
             this.mi_archivoCerrarProyecto.Text = "Cerrar Proyecto";
             this.mi_archivoCerrarProyecto.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -188,7 +188,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_mostarProyecto);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtb_Errores);
             this.Controls.Add(this.label_FilaColumna);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rtb_escribirCodigo);
@@ -207,7 +207,7 @@
         private System.Windows.Forms.RichTextBox rtb_escribirCodigo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label_FilaColumna;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_Errores;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mi_archivoCrear;

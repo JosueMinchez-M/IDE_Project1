@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace IDE_Project1
 {
     class Automata
     {
-        // 25, 10
+        int z = 0;
+        ArrayList cadenaNoAceptada = new ArrayList();
         int[,] resumen = new int[26, 10]{
             {1,2,3,4,5,6,7,8,9,0},
             {1,10,3,4,25,25,25,25,25,0},
@@ -23,10 +25,10 @@ namespace IDE_Project1
             {25,25,25,25,25,25,25,8,9,0},
             {25,25,3,25,5,25,25,25,9,0},
             {11,10,3,4,25,25,25,25,25,0},
-            {11,25,25,25,25,25,25,25,25,0},
+            {11,25,25,25,25,25,25,25,9,0},
             {11,12,3,4,25,13,25,25,25,0},
             {25,24,25,25,25,13,25,25,25,0},
-            {25,25,14,4,25,25,25,25,9,0},
+            {11,25,14,4,25,25,25,25,9,0},
             {15,16,17,18,19,20,21,22,23,0},
             {15,16,17,18,19,20,21,22,23,0},
             {15,16,17,18,19,20,21,22,23,0},
@@ -39,22 +41,21 @@ namespace IDE_Project1
             {25,24,25,25,25,25,25,25,25,0},
             {0,0,0,0,0,0,0,0,0,0}};
 
-        internal void automataActivado(RichTextBox rtb_escribirCodigo)
+        internal void automataActivado(RichTextBox rtb_escribirCodigo, RichTextBox rtb_Errores)
         {   //Con este for se verifica el numero de linea el cual estamos manejando
+            //cadenaNoAceptada.Clear();
             for (int i = 0; i < rtb_escribirCodigo.Lines.Length; i++)
             {
-                String linea = rtb_escribirCodigo.Lines[i];
-                String[] cadenaLinea = linea.Split(' ');
-                //String [] cadenaLinea = rtb_escribirCodigo.Lines[i].Split(' ');
-                //En este for verificamos las cadenas que contiene la Linea que se verifica
-                for (int a = 0; a < cadenaLinea.Length; a++)
+                String[] cadenaLinea = rtb_escribirCodigo.Lines[i].Split(' ');
+                for (int j = 0; j < cadenaLinea.Length; j++)
                 {
-                    String cadena = cadenaLinea[a];
-                    //caracterCadena = cadena.ToCharArray();
-                    inicio(cadena, rtb_escribirCodigo);
-                    //rtb_escribirCodigo.SelectionColor = Color.Red;
-                    //rtb_escribirCodigo.SelectionStart = rtb_escribirCodigo.Text.Length;
+                    inicio(cadenaLinea[j], rtb_escribirCodigo);
                 }
+            }
+            MessageBox.Show(Convert.ToString(cadenaNoAceptada.Count));
+            for (int i = 0; i < cadenaNoAceptada.Count; i++)
+            {
+                rtb_Errores.Text = Convert.ToString(cadenaNoAceptada[i]);
             }
         }
 
@@ -113,26 +114,25 @@ namespace IDE_Project1
                 else
                 {
                     caracter = 9;
+                    MessageBox.Show(Convert.ToString(caracterCadena[i]));
+                    cadenaNoAceptada.Add(caracterCadena[i]);
                 }
                 Console.WriteLine(estado + " y " + caracter);
                 estado = resumen[estado, caracter];
                 i++;
             }
-            if (estado == 1| estado == 2|| estado == 3 || estado == 6 || estado == 7 || estado == 8 
+            if (estado == 1|| estado == 2|| estado == 3 || estado == 6 || estado == 7 || estado == 8 
                 || estado == 9 || estado == 10 || estado == 11 || estado == 12 || estado == 13 || estado == 14
                 || estado == 19 || estado == 24 || estado == 20)
             {
-                MessageBox.Show("Cadena fue aceptada " + cadena);
+                //cadenaVerificada = Convert.ToString(caracterCadena);
+                Console.WriteLine("Cadena fue aceptada " + cadena);
             }
             else
             {
-                MessageBox.Show("No fue aceptada " + cadena);
+                Console.WriteLine("No fue aceptada " + cadena);
+                //cadenaNoAceptada.Add(cadena);
             }
-
-        }
-
-        public void cadenaPintada(RichTextBox rtb_escribirCodigo)
-        {
         }
     }
 }
