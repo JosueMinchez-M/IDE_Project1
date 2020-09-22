@@ -132,6 +132,11 @@ namespace IDE_Project1
             mi_archivoCerrarProyecto.Enabled = false;
             archivo.eliminarArchivo(rtb_escribirCodigo, label_mostarProyecto);
         }
+
+        private void btn_ExportarErrores_Click(object sender, EventArgs e)
+        {
+            archivo.guardarErrores(rtb_Errores);
+        }
         //Una prueba con el raton
         //private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
         //{

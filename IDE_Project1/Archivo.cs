@@ -127,5 +127,26 @@ namespace IDE_Project1
                 MessageBox.Show("Error al borrar archivo, no se ha seleccionado ninguno");
             }
         }
+        public void guardarErrores(System.Windows.Forms.RichTextBox rtb_Errores)
+        {
+            String path = "";
+            System.Windows.Forms.SaveFileDialog guardarArchivo = new System.Windows.Forms.SaveFileDialog();
+            guardarArchivo.Filter = "gtE files (*.gtE)|*.gtE"; //Text|*.txt|All|*.*
+            if (guardarArchivo.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = guardarArchivo.FileName;
+                try
+                {
+                    StreamWriter sw = new StreamWriter(File.Create(path));
+                    sw.Write(rtb_Errores.Text);
+                    sw.Dispose();
+                    MessageBox.Show("Cambios Guardados con Exito");
+                }
+                catch
+                {
+                    MessageBox.Show("No es posible Guardar por el momento");
+                }
+            }
+        }
     }
 }

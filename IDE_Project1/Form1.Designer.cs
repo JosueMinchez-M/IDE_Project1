@@ -44,6 +44,7 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.label_mostarProyecto = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_ExportarErrores = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,33 +118,33 @@
             // mi_archivoCrear
             // 
             this.mi_archivoCrear.Name = "mi_archivoCrear";
-            this.mi_archivoCrear.Size = new System.Drawing.Size(156, 22);
+            this.mi_archivoCrear.Size = new System.Drawing.Size(180, 22);
             this.mi_archivoCrear.Text = "Crear";
             this.mi_archivoCrear.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // mi_archivoAbrir
             // 
             this.mi_archivoAbrir.Name = "mi_archivoAbrir";
-            this.mi_archivoAbrir.Size = new System.Drawing.Size(156, 22);
+            this.mi_archivoAbrir.Size = new System.Drawing.Size(180, 22);
             this.mi_archivoAbrir.Text = "Abrir";
             this.mi_archivoAbrir.Click += new System.EventHandler(this.abrirToolStripMenuItem1_Click);
             // 
             // mi_archivoEliminar
             // 
             this.mi_archivoEliminar.Name = "mi_archivoEliminar";
-            this.mi_archivoEliminar.Size = new System.Drawing.Size(156, 22);
+            this.mi_archivoEliminar.Size = new System.Drawing.Size(180, 22);
             this.mi_archivoEliminar.Text = "Eliminar";
             this.mi_archivoEliminar.Click += new System.EventHandler(this.mi_archivoEliminar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // mi_archivoCerrarProyecto
             // 
             this.mi_archivoCerrarProyecto.Name = "mi_archivoCerrarProyecto";
-            this.mi_archivoCerrarProyecto.Size = new System.Drawing.Size(156, 22);
+            this.mi_archivoCerrarProyecto.Size = new System.Drawing.Size(180, 22);
             this.mi_archivoCerrarProyecto.Text = "Cerrar Proyecto";
             this.mi_archivoCerrarProyecto.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -181,11 +182,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Usando Proyecto:";
             // 
+            // btn_ExportarErrores
+            // 
+            this.btn_ExportarErrores.Location = new System.Drawing.Point(12, 404);
+            this.btn_ExportarErrores.Name = "btn_ExportarErrores";
+            this.btn_ExportarErrores.Size = new System.Drawing.Size(106, 23);
+            this.btn_ExportarErrores.TabIndex = 8;
+            this.btn_ExportarErrores.Text = "Exportar Errores";
+            this.btn_ExportarErrores.UseVisualStyleBackColor = true;
+            this.btn_ExportarErrores.Click += new System.EventHandler(this.btn_ExportarErrores_Click);
+            // 
             // IDE_Project1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_ExportarErrores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_mostarProyecto);
             this.Controls.Add(this.rtb_Errores);
@@ -219,6 +231,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.Label label_mostarProyecto;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_ExportarErrores;
     }
 }
 
