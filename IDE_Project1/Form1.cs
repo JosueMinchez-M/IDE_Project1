@@ -117,6 +117,7 @@ namespace IDE_Project1
             mi_archivoCrear.Enabled = true;
             archivo.guardarArchivo(rtb_escribirCodigo);
             archivo.cerrarProyecto(rtb_escribirCodigo, label_mostarProyecto);
+            rtb_Errores.Text = "";
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)

@@ -27,7 +27,7 @@ namespace IDE_Project1
                 char caracterExaminar = caracterTexto[i];
                 //MessageBox.Show(Convert.ToString(caracterExaminar));
                 colorCaracter(rtb_escribirCodigo, caracterExaminar);
-                colorearCadenaEspecificada(rtb_escribirCodigo, "\"", Color.Gray);
+                //colorearCadenaEspecificada(rtb_escribirCodigo, "\"", Color.Gray);
                 colorearCadenaEspecificada(rtb_escribirCodigo, "==", Color.DarkBlue);
                 colorearCadenaEspecificada(rtb_escribirCodigo, ">=", Color.DarkBlue);
                 colorearCadenaEspecificada(rtb_escribirCodigo, "<=", Color.DarkBlue);

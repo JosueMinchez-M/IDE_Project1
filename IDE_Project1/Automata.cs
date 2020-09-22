@@ -43,7 +43,8 @@ namespace IDE_Project1
 
         internal void automataActivado(RichTextBox rtb_escribirCodigo, RichTextBox rtb_Errores)
         {   //Con este for se verifica el numero de linea el cual estamos manejando
-            //cadenaNoAceptada.Clear();
+            rtb_Errores.Text = "";
+            cadenaNoAceptada.Clear();
             for (int i = 0; i < rtb_escribirCodigo.Lines.Length; i++)
             {
                 String[] cadenaLinea = rtb_escribirCodigo.Lines[i].Split(' ');
@@ -52,17 +53,15 @@ namespace IDE_Project1
                     inicio(cadenaLinea[j], rtb_escribirCodigo);
                 }
             }
-            MessageBox.Show(Convert.ToString(cadenaNoAceptada.Count));
+            //MessageBox.Show(Convert.ToString(cadenaNoAceptada.Count));
             for (int i = 0; i < cadenaNoAceptada.Count; i++)
             {
-                rtb_Errores.Text = Convert.ToString(cadenaNoAceptada[i]);
+                rtb_Errores.SelectedText = Convert.ToString(cadenaNoAceptada[i] + "\n");
             }
         }
 
         private void inicio(String cadena, RichTextBox rtb_escribirCodigo)
         {
-            //contador = 0;
-            //Z0();
             int i;
             char[] caracterCadena;
             int estado, caracter;
@@ -114,7 +113,7 @@ namespace IDE_Project1
                 else
                 {
                     caracter = 9;
-                    MessageBox.Show(Convert.ToString(caracterCadena[i]));
+                    //MessageBox.Show(Convert.ToString(caracterCadena[i]));
                     cadenaNoAceptada.Add(caracterCadena[i]);
                 }
                 Console.WriteLine(estado + " y " + caracter);
