@@ -14,7 +14,7 @@ namespace IDE_Project1
         } 
         public int Fila { get; set; }
         public int Columna { get; set; }
-
+        //Se muestran los valores de la fila y columna en la que nos encontramos en la etiqueta
         internal void verFilaColumna(Label label_FilaColumna)
         {
             label_FilaColumna.Text = "Fila: " + this.Fila + " Columna: " + this.Columna;

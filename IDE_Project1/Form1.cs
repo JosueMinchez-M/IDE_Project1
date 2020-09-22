@@ -47,20 +47,6 @@ namespace IDE_Project1
             Etiqueta etiqueta = new Etiqueta(fila, columna);
             etiqueta.verFilaColumna(label_FilaColumna);
         }
-        //Una prueba con el raton
-        //public void datoEtiquetaRaton(int indice)
-        //{
-        //    // Obtenemos la Fila 
-        //    //int indice = rtb_escribirCodigo.SelectionStart;
-        //    Console.WriteLine(indice);
-        //    int fila = rtb_escribirCodigo.GetLineFromCharIndex(indice);
-        //    // Obtenemos la Columna
-        //    int primerCaracter = rtb_escribirCodigo.GetFirstCharIndexFromLine(fila);
-        //    Console.WriteLine(primerCaracter);
-        //    int columna = indice - primerCaracter;
-        //    Etiqueta etiquetaRaton = new Etiqueta(fila, columna);
-        //    etiquetaRaton.verFilaColumna(label_FilaColumna);
-        //}
         /*Con este Método se determina la ETIQUETA donde está el No. de fila y columna
          en la que se encuentra el cursor de Texto al momento de escribir cada caracter*/
         private void rtb_escribirCodigo_TextChanged(object sender, EventArgs e)
@@ -103,7 +89,6 @@ namespace IDE_Project1
             mi_archivoCrear.Enabled = false;
             mi_archivoCerrarProyecto.Enabled = true;
             archivo.abrirArchivo(rtb_escribirCodigo, label_mostarProyecto);
-            MessageBox.Show("******************" + rtb_escribirCodigo.Lines.Length + "********************");
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -137,11 +122,5 @@ namespace IDE_Project1
         {
             archivo.guardarErrores(rtb_Errores);
         }
-        //Una prueba con el raton
-        //private void rtb_escribirCodigo_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //  datoEtiquetaRaton(e.X);
-        //label_FilaColumna.Text = "Fila: " + e.X + " Columna: " + e.Y;
-        //}
     }
 }
