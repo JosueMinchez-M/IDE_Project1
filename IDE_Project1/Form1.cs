@@ -7,14 +7,120 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Documents;
+using System.Security.Policy;
+using Microsoft.Win32;
+using System.Windows.Media.Animation;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace IDE_Project1
 {
-    public partial class Form1 : Form
+    public partial class IDE_Project1 : Form
     {
-        public Form1()
+        Cadena cadena = new Cadena();
+        Archivo archivo = new Archivo();
+        Automata automata = new Automata();
+        public IDE_Project1()
         {
             InitializeComponent();
+            rtb_escribirCodigo.ReadOnly = true;
+            mi_archivoCerrarProyecto.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cadena.caracterCadena(rtb_escribirCodigo);
+            automata.automataActivado(rtb_escribirCodigo, rtb_Errores);
+        }
+        //Se obtiene el numero de filas y columnas
+        public void datoEtiquetaTeclado()
+        {
+            // Obtenemos la Fila 
+            int indice = rtb_escribirCodigo.SelectionStart;
+            Console.WriteLine(indice);
+            int fila = rtb_escribirCodigo.GetLineFromCharIndex(indice);
+            // Obtenemos la Columna
+            int primerCaracter = rtb_escribirCodigo.GetFirstCharIndexFromLine(fila);
+            Console.WriteLine(primerCaracter);
+            int columna = indice - primerCaracter;
+            Etiqueta etiqueta = new Etiqueta(fila, columna);
+            etiqueta.verFilaColumna(label_FilaColumna);
+        }
+        /*Con este Método se determina la ETIQUETA donde está el No. de fila y columna
+         en la que se encuentra el cursor de Texto al momento de escribir cada caracter*/
+        private void rtb_escribirCodigo_TextChanged(object sender, EventArgs e)
+        {
+            datoEtiquetaTeclado();
+        }
+        /*Con este Método también se determina la ETIQUETA donde está el No. de fila y columna 
+          en la que se encuentra el cursor de Texto pero identificado con las teclas
+          up, down, left, rigth */
+        private void rtb_escribirCodigo_Key(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                datoEtiquetaTeclado();
+            }else if (e.KeyCode == Keys.Down)
+            {
+                datoEtiquetaTeclado();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                datoEtiquetaTeclado();
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                datoEtiquetaTeclado();
+            }
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mi_archivoAbrir.Enabled = false;
+            mi_archivoCrear.Enabled = false;
+            mi_archivoCerrarProyecto.Enabled = true;
+            archivo.crearArchivo(rtb_escribirCodigo, label_mostarProyecto);
+        }
+
+        private void abrirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            mi_archivoAbrir.Enabled = false;
+            mi_archivoCrear.Enabled = false;
+            mi_archivoCerrarProyecto.Enabled = true;
+            archivo.abrirArchivo(rtb_escribirCodigo, label_mostarProyecto);
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            archivo.guardarArchivo(rtb_escribirCodigo);
+        }
+        //Método del item CERRAR PROYECTO
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            mi_archivoAbrir.Enabled = true;
+            mi_archivoCrear.Enabled = true;
+            archivo.guardarArchivo(rtb_escribirCodigo);
+            archivo.cerrarProyecto(rtb_escribirCodigo, label_mostarProyecto);
+            rtb_Errores.Text = "";
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            archivo.editarProyecto(rtb_escribirCodigo);
+        }
+
+        private void mi_archivoEliminar_Click(object sender, EventArgs e)
+        {
+            mi_archivoAbrir.Enabled = true;
+            mi_archivoCrear.Enabled = true;
+            mi_archivoCerrarProyecto.Enabled = false;
+            archivo.eliminarArchivo(rtb_escribirCodigo, label_mostarProyecto);
+        }
+
+        private void btn_ExportarErrores_Click(object sender, EventArgs e)
+        {
+            archivo.guardarErrores(rtb_Errores);
         }
     }
 }
